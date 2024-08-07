@@ -1,7 +1,3 @@
-.custom-grid .ag-header-cell, .custom-grid .ag-cell {
-    border-radius: 10px;
-}
-
 .bad {
     background-color: #ffe6e6;
 }
@@ -17,10 +13,7 @@
 .header-cell {
     font-weight: bold;
     text-align: center;
-}
 
-.ag-theme-alpine .ag-header, .ag-theme-alpine .ag-row {
-    border-radius: 10px;
 }
 
 .ag-theme-alpine .ag-header-cell {
@@ -36,3 +29,7 @@
     align-items: center;
     justify-content: center;
 }
+
+
+
+

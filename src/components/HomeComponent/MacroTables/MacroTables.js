@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 import { setMacroData } from '../../../redux/macroDataSlice';
 import MacroTablesSettings from './MacroTablesSettings/MacroTablesSettings';
 import Tables from './Tables/Tables';
+import s from './MacroTables.module.css';
+
 
 function MacroTables() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,15 +23,29 @@ function MacroTables() {
         dispatch(setMacroData(updatedData));
     };
 
+    const groupedData = macroSettings.reduce((acc, item) => {
+        if (!acc[item.type]) acc[item.type] = [];
+        acc[item.type].push(item);
+        return acc;
+    }, {});
+
     return (
         <div>
             <button onClick={() => setIsModalOpen(true)}>Добавить макропараметры</button>
+            <button onClick={() => console.log(macroSettings)}>Кликерс</button>
             <MacroTablesSettings
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
                 onSave={handleAddMacroData}
             />
-            <Tables />
+            <div className={s.tables}>
+                {Object.keys(groupedData).map(type => (
+                    <div className={s.table}>
+                        <Tables key={type} data={groupedData[type]} type={type}/>
+                    </div>
+
+                ))}
+            </div>
         </div>
     );
 }

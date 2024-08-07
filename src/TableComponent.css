@@ -1,0 +1,22 @@
+/* src/TableComponent.css */
+.custom-grid .ag-header-cell {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
+
+.custom-grid .ag-cell {
+    border: none;
+}
+
+.custom-grid .ag-header-group-cell {
+    border: none;
+}
+
+.custom-grid .ag-header {
+    border: none;
+}
+
+.custom-grid .ag-root-wrapper {
+    border-radius: 10px;
+    overflow: hidden;
+}

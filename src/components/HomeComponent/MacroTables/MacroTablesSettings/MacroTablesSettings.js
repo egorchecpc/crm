@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useRef, useEffect } from 'react';
+import s from './MacroTablesSettings.module.css';
 
 const MacroTablesSettings = ({ isOpen, onClose, onSave }) => {
-    const [formData, setFormData] = useState({
+    const modalContentRef = useRef(null);
+    const [formData, setFormData] = React.useState({
         type: '',
         year: '',
         worst: { value: '', chance: '' },
@@ -33,16 +35,30 @@ const MacroTablesSettings = ({ isOpen, onClose, onSave }) => {
         onClose();
     };
 
+    const handleOutsideClick = (e) => {
+        if (modalContentRef.current && !modalContentRef.current.contains(e.target)) {
+            onClose();
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleOutsideClick);
+        return () => {
+            document.removeEventListener('mousedown', handleOutsideClick);
+        };
+    }, []);
+
     if (!isOpen) return null;
 
     return (
-        <div className="modal">
-            <div className="modal-content">
+        <div className={s.modal}>
+            <div className={s.modalContent} ref={modalContentRef}>
                 <h2>Добавить макропараметры</h2>
                 <form>
                     <label>
                         Тип макропараметра:
                         <select name="type" value={formData.type} onChange={handleInputChange}>
+                            <option value='' disabled>Выберите тип</option>
                             <option value="realIncome">РРДН</option>
                             <option value="workProgress">ННЗП</option>
                         </select>
