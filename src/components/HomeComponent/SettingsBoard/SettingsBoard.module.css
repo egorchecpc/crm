@@ -1,0 +1,13 @@
+.board {
+    display: flex;
+    gap: 100px;
+    height: 100%;
+    background-color: white;
+    padding:10px;
+    align-items: center;
+}
+
+.board h1 {
+    margin: 0;
+    padding: 0;
+}

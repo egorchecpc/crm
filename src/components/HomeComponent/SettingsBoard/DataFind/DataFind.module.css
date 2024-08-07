@@ -1,0 +1,18 @@
+.settings {
+    display: flex;
+    gap: 20px;
+    text-align: center;
+    align-items: center;
+    background-color:#eef3f9;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.setting {
+    padding:5px;
+}
+.setting h5{
+    color: grey;
+    margin:0;
+    padding: 0;
+}
