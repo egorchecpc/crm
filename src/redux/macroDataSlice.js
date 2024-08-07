@@ -11,9 +11,15 @@ const macroDataSlice = createSlice({
         setMacroData(state, action) {
             state.data = action.payload;
         },
+        updateMacroData(state, action) {
+            const { type, updatedData } = action.payload;
+            state.data = state.data.map(item =>
+                item.type === type ? { ...item, ...updatedData } : item
+            );
+        },
     },
 });
 
-export const {setMacroData} = macroDataSlice.actions;
+export const {setMacroData, updateMacroData} = macroDataSlice.actions;
 
 export default macroDataSlice.reducer;

@@ -40,7 +40,7 @@ function MacroTables() {
             />
             <div className={s.tables}>
                 {Object.keys(groupedData).map(type => (
-                    <div className={s.table}>
+                    <div className={s.table} key={type}>
                         <Tables key={type} data={groupedData[type]} type={type}/>
                     </div>
 

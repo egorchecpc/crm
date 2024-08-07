@@ -3,7 +3,7 @@
     import { AgGridReact } from 'ag-grid-react';
     import 'ag-grid-community/styles/ag-grid.css';
     import 'ag-grid-community/styles/ag-theme-alpine.css';
-    import { setMacroData } from '../../../../redux/macroDataSlice';
+    import { updateMacroData } from '../../../../redux/macroDataSlice';
     import s from './Tables.module.css';
 
     const Tables = ({ data, type }) => {
@@ -73,7 +73,9 @@
                     chance: parseFloat(rowData[1][`best${index}`])
                 },
             }));
-            dispatch(setMacroData(updatedData));
+            console.log(updatedData)
+            const [updatedData2] = updatedData;
+            dispatch(updateMacroData({ type, updatedData: updatedData2 }));
         };
 
 
