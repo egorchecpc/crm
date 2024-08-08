@@ -1,0 +1,59 @@
+.template-manager {
+    font-family: Arial, sans-serif;
+}
+
+.template-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.template-header label {
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.template-header select {
+    margin-right: 10px;
+}
+
+.template-header button {
+    margin-left: 10px;
+}
+
+.template-actions {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.template-actions button {
+    margin-right: 5px;
+}
+
+.template-preview {
+    margin-top: 10px;
+}
+
+.template-settings {
+}
+
+.template-fields {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.template-field {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.template-field label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.template-field select {
+    width: 200px;
+}

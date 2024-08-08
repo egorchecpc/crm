@@ -1,0 +1,15 @@
+.file-upload-container {
+    display: flex;
+    align-items: center;
+    font-family: Arial, sans-serif; /* Стиль шрифта, аналогичный изображению */
+}
+
+.file-upload-label {
+    margin-right: 10px;
+    white-space: nowrap; /* Предотвращает перенос текста на новую строку */
+}
+
+.file-upload-input {
+    padding: 5px;
+    font-size: 14px;
+}

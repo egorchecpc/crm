@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "ag-grid-community": "^32.0.2",
     "ag-grid-react": "^32.0.2",
+    "axios": "^1.7.3",
     "date-fns": "^3.6.0",
     "exceljs": "^4.4.0",
     "react": "^18.3.1",
