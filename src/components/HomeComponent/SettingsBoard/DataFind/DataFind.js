@@ -3,6 +3,9 @@ import {useSelector, useDispatch} from 'react-redux';
 import s from './DataFind.module.css';
 import FindSettings from './FindSettings/FindSettings';
 import {setFindSettings} from '../../../../redux/settingsSlice';
+import {ReactComponent as PencilIcon} from '../../../../img/pencil.svg'
+
+
 
 const options = {
     debtorType: ['Все', 'Физическое лицо', 'Юридическое лицо'],
@@ -28,15 +31,15 @@ const DataFind = (props) => {
         <div className={s.settings}>
             <div className={s.setting}>
                 <h5>Тип должника</h5>
-                <div>{dataSettings.debtorType}</div>
+                <div>{dataSettings.debtorType.toString()}</div>
             </div>
             <div className={s.setting}>
                 <h5>Вид кредита</h5>
-                <div>{dataSettings.creditType}</div>
+                <div>{dataSettings.creditType.toString()}</div>
             </div>
             <div className={s.setting}>
                 <h5>Вид продукта</h5>
-                <div>{dataSettings.productType}</div>
+                <div>{dataSettings.productType.toString()}</div>
             </div>
             <div className={s.setting}>
                 <h5>Дата</h5>
@@ -46,7 +49,11 @@ const DataFind = (props) => {
                         : '—'}
                 </div>
             </div>
-            <button onClick={onChangeSettings}>Изменить</button>
+            <button className={s['change-button']} onClick={onChangeSettings}>
+                <PencilIcon />
+                Изменить
+            </button>
+
             {modalWindow && (
                 <FindSettings
                     onClose={onChangeSettings}

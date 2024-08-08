@@ -1,0 +1,25 @@
+.profile {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-photo img{
+    height: 50px;
+    border-radius: 50%;
+}
+
+.profile-data{
+    display: flex;
+    flex-direction: column;
+    gap: 5px
+}
+
+.name {
+    font-weight: bold;
+}
+
+.position {
+    color: #7B7979;
+}

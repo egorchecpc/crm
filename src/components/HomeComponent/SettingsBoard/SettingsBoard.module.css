@@ -5,9 +5,31 @@
     background-color: white;
     padding:10px;
     align-items: center;
+    justify-content: center;
 }
 
 .board h1 {
     margin: 0;
     padding: 0;
+    color:#808098;
+
 }
+
+.link {
+    text-decoration: none;
+}
+.export-button {
+    display: flex;
+    padding: 7px 13px;
+    border-radius: 8px;
+    border: none;
+    background-color: #E8F1FE;
+    color:#166FF6;
+    gap:8px;
+}
+
+.export-button:hover {
+    background-color: #166FF6;
+    color: white
+}
+

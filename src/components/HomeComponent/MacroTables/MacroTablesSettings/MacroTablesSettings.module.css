@@ -13,9 +13,125 @@
 
 .modalContent {
     background: white;
-    padding: 20px;
-    border-radius: 5px;
+    padding: 30px;
+    border-radius: 12px;
     position: relative;
-    width: 550px;
+    width: 35%;
     z-index: 1001;
 }
+
+.modalTitle {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 24px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.select:focus {
+    border-color: #007BFF; /* Цвет бордюра при фокусе */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Добавляем тень */
+    outline: none;
+}
+
+
+.scenarioContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.scenario {
+    width: 100%;
+}
+
+.scenarioTitle {
+    margin: 12px 0;
+    color: #B7BDC5;
+}
+
+.form-data {
+    display: flex;
+    gap: 20px;
+    font-weight: bold;
+}
+.input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.setting-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+}
+
+.next-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.back-button {
+    background-color: white;
+    color: #B7BDC5;
+}
+
+.next-button:hover {
+    background-color: #0056b3;
+}
+
+.back-button:hover {
+    color: #007bff;
+}
+.back-button:hover svg path {
+    stroke: #007bff;
+}
+
+.input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+.input {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: none;
+}
+

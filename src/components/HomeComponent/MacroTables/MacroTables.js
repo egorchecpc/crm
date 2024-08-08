@@ -30,9 +30,7 @@ const MacroTables = () => {
     }, {});
 
     return (
-        <div>
-            <button onClick={() => setIsModalOpen(true)}>Добавить макропараметры</button>
-            <button onClick={() => console.log(macroSettings)}>Кликерс</button>
+        <div className={s.macro}>
             <MacroTablesSettings
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
@@ -45,6 +43,10 @@ const MacroTables = () => {
                     </div>
 
                 ))}
+            </div>
+            <div className={s.test}>
+                <button className={s['add-button']} onClick={() => setIsModalOpen(true)}>+ Добавить макропоказатель
+                </button>
             </div>
         </div>
     );
