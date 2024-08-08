@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import s from './FindSettings.module.css';
 
-function FindSettings({ onClose, onSave, settings, options }) {
+const FindSettings = ({onClose, onSave, settings, options}) => {
 
     const modalContentRef = useRef(null);
 
@@ -13,7 +13,7 @@ function FindSettings({ onClose, onSave, settings, options }) {
     });
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const {name, value} = e.target;
         setFormData({
             ...formData,
             [name]: value,

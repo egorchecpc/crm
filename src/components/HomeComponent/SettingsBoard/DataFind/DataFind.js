@@ -1,16 +1,16 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import s from './DataFind.module.css';
 import FindSettings from './FindSettings/FindSettings';
-import { setFindSettings } from '../../../../redux/settingsSlice';
+import {setFindSettings} from '../../../../redux/settingsSlice';
 
 const options = {
-    debtorType: ['Все','Физическое лицо', 'Юридическое лицо'],
-    creditType: ['Все','Потребительский кредит', 'Ипотечный кредит'],
-    productType: ['Все','Кредитная карта', 'Дебетовая карта'],
+    debtorType: ['Все', 'Физическое лицо', 'Юридическое лицо'],
+    creditType: ['Все', 'Потребительский кредит', 'Ипотечный кредит'],
+    productType: ['Все', 'Кредитная карта', 'Дебетовая карта'],
 };
 
-function DataFind(props) {
+const DataFind = (props) => {
     const [modalWindow, setModalWindow] = React.useState(false);
     const dataSettings = useSelector((state) => state.settings.settings);
     const dispatch = useDispatch();

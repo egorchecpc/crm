@@ -1,6 +1,6 @@
 import React from 'react';
 
-function InfoTables(props) {
+const InfoTables = (props) => {
     return (
         <div></div>
     );

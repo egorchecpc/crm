@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Profile(props) {
+const Profile = (props) => {
     return (
         <div>
-            <img />
+            <img/>
             <div>
                 <div>Имя</div>
                 <div>Должность</div>
