@@ -49,59 +49,70 @@ const FindSettings = ({onClose, onSave, settings, options}) => {
     return (
         <div className={s.modal}>
             <div className={s.modalContent} ref={modalContentRef}>
-                <h2>Изменить настройки</h2>
-                <div className={s.formGroup}>
-                    <label>Тип должника</label>
-                    <select
-                        name="debtorType"
-                        value={formData.debtorType}
-                        onChange={handleChange}
-                    >
-                        <option value="—" disabled>Выберите тип должника</option>
-                        {options.debtorType.map((option, index) => (
-                            <option key={index} value={option}>{option}</option>
-                        ))}
-                    </select>
-                </div>
-                <div className={s.formGroup}>
-                    <label>Вид кредита</label>
-                    <select
-                        name="creditType"
-                        value={formData.creditType}
-                        onChange={handleChange}
-                    >
-                        <option value="—" disabled>Выберите тип кредита</option>
-                        {options.creditType.map((option, index) => (
-                            <option key={index} value={option}>{option}</option>
-                        ))}
-                    </select>
-                </div>
-                <div className={s.formGroup}>
-                    <label>Вид продукта</label>
-                    <select
-                        name="productType"
-                        value={formData.productType}
-                        onChange={handleChange}
-                    >
-                        <option value="—" disabled>Выберите вид продукта</option>
-                        {options.productType.map((option, index) => (
-                            <option key={index} value={option}>{option}</option>
-                        ))}
-                    </select>
-                </div>
-                <div className={s.formGroup}>
-                    <label>Дата</label>
-                    <DatePicker
-                        selected={formData.dateRange[0]}
-                        onChange={handleDateChange}
-                        startDate={formData.dateRange[0]}
-                        endDate={formData.dateRange[1]}
-                        selectsRange
-                        inline
-                    />
-                </div>
-                <button onClick={handleSave}>Сохранить</button>
-                <button onClick={onClose}>Отмена</button>
+                <h2 className={s.modalTitle}>Изменить настройки</h2>
+                <form className={s.form}>
+                    <label className={s.label}>
+                        <h3 className={s['date__header']}>Тип должника</h3>
+                        <select
+                            name="debtorType"
+                            value={formData.debtorType}
+                            onChange={handleChange}
+                            className={s.select}
+                        >
+                            <option value="—" disabled>Выберите тип должника</option>
+                            {options.debtorType.map((option, index) => (
+                                <option key={index} value={option}>{option}</option>
+                            ))}
+                        </select>
+                    </label>
+                    <label className={s.label}>
+                        <h3 className={s['date__header']}>Вид кредита</h3>
+                        <select
+                            name="creditType"
+                            value={formData.creditType}
+                            onChange={handleChange}
+                            className={s.select}
+                        >
+                            <option value="—" disabled>Выберите тип кредита</option>
+                            {options.creditType.map((option, index) => (
+                                <option key={index} value={option}>{option}</option>
+                            ))}
+                        </select>
+                    </label>
+                    <label className={s.label}>
+                        <h3 className={s['date__header']}>Вид продукта</h3>
+                        <select
+                            name="productType"
+                            value={formData.productType}
+                            onChange={handleChange}
+                            className={s.select}
+                        >
+                            <option value="—" disabled>Выберите вид продукта</option>
+                            {options.productType.map((option, index) => (
+                                <option key={index} value={option}>{option}</option>
+                            ))}
+                        </select>
+                    </label>
+                    <div className={s['date-block']}>
+                        <label className={s.label}>
+                            <h3 className={s['date__header']}>Дата</h3>
+                            <DatePicker
+                                selected={formData.dateRange[0]}
+                                onChange={handleDateChange}
+                                startDate={formData.dateRange[0]}
+                                endDate={formData.dateRange[1]}
+                                selectsRange
+                                inline
+                            />
+                        </label>
+                    </div>
+                    <div className={s.buttonContainer}>
+                        <button className={`${s['next-button']} ${s['button']}`} onClick={handleSave}>Сохранить</button>
+                        <button className={`${s['back-button']} ${s['button']}`} onClick={onClose}>Отмена</button>
+                    </div>
+                </form>
+
+
             </div>
         </div>
     );

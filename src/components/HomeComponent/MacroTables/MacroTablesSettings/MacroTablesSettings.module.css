@@ -17,7 +17,7 @@
     border-radius: 12px;
     position: relative;
     width: 35%;
-    z-index: 9999;
+    z-index: 10000;
 }
 
 .modalTitle {

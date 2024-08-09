@@ -5,36 +5,22 @@
     font-style: normal;
 }
 
+
 .bad {
     background-color: #ffe6e6;
+    text-align: center;
 }
 
 .normal {
     background-color: #fcfcfc;
+    text-align: center;
 }
 
 .good {
     background-color: #e6ffe6;
-}
-
-.header-cell {
-    font-weight: bold;
     text-align: center;
 }
 
-.ag-header-cell {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.ag-cell {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 .table-header {
     display: flex;
@@ -60,20 +46,21 @@
     --ag-border-radius: 10px;
     --ag-borders: none;
     --ag-row-border-style: none;
-    padding: 15px;
-    --ag-font-size: 15px;
+    padding: 10px 10px;
+    --ag-font-size: 13px;
     --ag-font-family: 'Urbanist', sans-serif;
-    --ag-grid-size: 3px;
+    --ag-grid-size: 4px;
+    width: 100%;
+    height: 120px;
+}
+.headerYear {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.ag-header-group-cell {
-    padding-left: 105px;
 
-}
-
-.ag-header-group-cell:nth-of-type(1) {
-    padding-left: 0;
-}
 
 
 

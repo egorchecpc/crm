@@ -1,0 +1,13 @@
+.tables {
+
+}
+
+.group-tables {
+    display:flex;
+}
+.lgd-table {
+    flex:4;
+}
+.ead-table {
+    flex:2;
+}

@@ -41,7 +41,6 @@ const MacroTables = () => {
                 ))}
             </div>
             <div className={s.test}>
-                <button onClick={()=>console.log(macroSettings)}>Click</button>
                 <button className={s['add-button']} onClick={() => setIsModalOpen(true)}>+ Добавить макропоказатель</button>
             </div>
         </div>

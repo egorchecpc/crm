@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {AgGridReact} from 'ag-grid-react';
-import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-quartz.css';
 import {updateMacroData} from '../../../../redux/macroDataSlice';
 import s from './Tables.module.css';
 import {ReactComponent as UploadIcon} from "../../../../img/downoload.svg";
 import {ReactComponent as PencilIcon} from "../../../../img/pencil2.svg";
-import CustomHeaderGroupComponent from './CustomHeaderGroupComponent';
+import '../../InfoTables/table.css'
 
 const Tables = ({data, type}) => {
     const dispatch = useDispatch();
@@ -37,22 +36,18 @@ const Tables = ({data, type}) => {
         setRowData(newRowData);
     }, [data]);
 
-    useEffect(() => {
-        console.log('Updated rowData', rowData)
-    }, [rowData]);
-
     const columnDefs = [
         {headerName: "Сценарий", field: "scenario", headerClass: s.headerCell, width: 120},
         ...data.map((item, index) => ({
             headerName: item.year.toString(),
-            headerGroupComponent: 'customHeaderGroupComponent',
+            headerClass: s.headerYear,
             children: [
                 {
                     headerName: "Худш.",
                     field: `worst${index}`,
                     cellClass: s.bad,
                     headerClass: s.bad,
-                    width: 67,
+                    flex: 1,
                     editable: true
                 },
                 {
@@ -60,7 +55,7 @@ const Tables = ({data, type}) => {
                     field: `normal${index}`,
                     cellClass: s.normal,
                     headerClass: s.normal,
-                    width: 67,
+                    flex: 1,
                     editable: true
                 },
                 {
@@ -68,7 +63,7 @@ const Tables = ({data, type}) => {
                     field: `best${index}`,
                     cellClass: s.good,
                     headerClass: s.good,
-                    width: 67,
+                    flex: 1,
                     editable: true,
                 }
             ]
@@ -104,8 +99,6 @@ const Tables = ({data, type}) => {
                 change: parseFloat(rowData[1][`best${index}`]),
             },
         }));
-
-        console.log(updatedData);
         dispatch(updateMacroData({type, updatedData}));
     };
 
@@ -115,9 +108,9 @@ const Tables = ({data, type}) => {
     }
 
     return (
-        <div className={s.table}    >
+        <div className={s.table}>
             {rowData
-                ?<div className={s['table-header']}>
+                ? <div className={s['table-header']}>
                     <div className={s['table-title']}>
                         <h3>{nameChanger[type]}</h3>
                         <div className={s.icon}><PencilIcon/></div>
@@ -126,24 +119,22 @@ const Tables = ({data, type}) => {
                         <UploadIcon/>
                     </div>
                 </div>
-                :''
+                : ''
             }
-            <div className={s['ag-theme-quartz']}>
-                <button onClick={()=>console.log('Column Defs:', columnDefs, 'Row Data:', rowData)}>Дата</button>
+            <div className='ag-theme-quartz'>
                 <AgGridReact
-                columnDefs={columnDefs.map(colDef => {
-                    if (colDef.children) {
-                        colDef.children = colDef.children.map(childDef => ({
-                            ...childDef,
-                            valueFormatter: childDef.field.includes('worst') || childDef.field.includes('normal') || childDef.field.includes('best') ? (params => params.value) : undefined
-                        }));
-                    }
-                    return colDef;
-                })}
-                rowData={rowData}
-                onCellValueChanged={handleCellValueChanged}
-                components={{ customHeaderGroupComponent: CustomHeaderGroupComponent }}
-            />
+                    columnDefs={columnDefs.map(colDef => {
+                        if (colDef.children) {
+                            colDef.children = colDef.children.map(childDef => ({
+                                ...childDef,
+                                valueFormatter: childDef.field.includes('worst') || childDef.field.includes('normal') || childDef.field.includes('best') ? (params => params.value) : undefined
+                            }));
+                        }
+                        return colDef;
+                    })}
+                    rowData={rowData}
+                    onCellValueChanged={handleCellValueChanged}
+                />
             </div>
         </div>
     );
