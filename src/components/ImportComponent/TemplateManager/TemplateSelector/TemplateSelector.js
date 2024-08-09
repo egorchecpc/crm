@@ -4,7 +4,7 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import s from './TemplateSelector.module.css';
-import { setMappedData, setFieldMappings } from '../../../../redux/dataSlice';
+import { setMappedData, setFieldMappings } from '../../../../redux/tableDataSlice';
 
 
 const TemplateSelector = () => {

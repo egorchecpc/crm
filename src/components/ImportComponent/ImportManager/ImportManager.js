@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import FileUpload from "./FileUpload";
 import { useDispatch } from 'react-redux';
-import { setColumns, setRows } from '../../../redux/dataSlice';
+import { setColumns, setRows } from '../../../redux/tableDataSlice';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';

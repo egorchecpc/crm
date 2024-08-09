@@ -7,7 +7,7 @@ const initialState = {
     fieldMappings: {},
 };
 
-const dataSlice = createSlice({
+const tableDataSlice = createSlice({
     name: 'data',
     initialState,
     reducers: {
@@ -26,6 +26,6 @@ const dataSlice = createSlice({
     },
 });
 
-export const { setColumns, setRows, setMappedData, setFieldMappings } = dataSlice.actions;
+export const { setColumns, setRows, setMappedData, setFieldMappings } = tableDataSlice.actions;
 
-export default dataSlice.reducer;
+export default tableDataSlice.reducer;

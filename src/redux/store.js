@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import settingsReducer from './settingsSlice';
 import macroReducer from './macroDataSlice';
-import dataReducer from './dataSlice';
+import dataReducer from './tableDataSlice';
 
 
 const store = configureStore({

@@ -1,37 +1,50 @@
 import React from 'react';
 import ExcelJS from 'exceljs';
+import Papa from 'papaparse';  // Импортируем библиотеку для обработки CSV
 import s from './FileUpload.module.css'
-
 
 const FileUpload = ({ onFileUpload }) => {
     const handleFileUpload = async (e) => {
         const file = e.target.files[0];
-        const reader = new FileReader();
+        const fileExtension = file.name.split('.').pop().toLowerCase();
 
-        reader.onload = async () => {
-            const workbook = new ExcelJS.Workbook();
-            await workbook.xlsx.load(file);
-            const worksheet = workbook.getWorksheet(1);
-            const data = [];
-
-            worksheet.eachRow((row, rowNumber) => {
-                const rowData = [];
-                row.eachCell((cell, colNumber) => {
-                    rowData.push(cell.value);
-                });
-                data.push(rowData);
+        if (fileExtension === 'csv') {
+            Papa.parse(file, {
+                complete: (result) => {
+                    const data = result.data;
+                    onFileUpload(data);
+                },
+                header: false
             });
+        } else if (fileExtension === 'xlsx' || fileExtension === 'xls') {
+            const reader = new FileReader();
+            reader.onload = async () => {
+                const workbook = new ExcelJS.Workbook();
+                await workbook.xlsx.load(file);
+                const worksheet = workbook.getWorksheet(1);
+                const data = [];
 
-            onFileUpload(data);
-        };
+                worksheet.eachRow((row, rowNumber) => {
+                    const rowData = [];
+                    row.eachCell((cell, colNumber) => {
+                        rowData.push(cell.value);
+                    });
+                    data.push(rowData);
+                });
 
-        reader.readAsArrayBuffer(file);
+                onFileUpload(data);
+            };
+
+            reader.readAsArrayBuffer(file);
+        } else {
+            alert('Unsupported file format. Please upload an .xlsx, .xls, or .csv file.');
+        }
     };
 
     return (
         <div className={s['file-upload-container']}>
             <label className={s['file-upload-label']}>Import File</label>
-            <input type="file" accept=".xlsx, .xls" onChange={handleFileUpload} className={s['file-upload-input']}/>
+            <input type="file" accept=".xlsx, .xls, .csv" onChange={handleFileUpload} className={s['file-upload-input']}/>
         </div>
     );
 };

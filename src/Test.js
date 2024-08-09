@@ -6,6 +6,75 @@ import 'ag-grid-community/styles/ag-theme-alpine.css';
 import './TableComponent.css'; // Импортируем стили
 
 const TableComponent = () => {
+    import {createSlice} from '@reduxjs/toolkit';
+
+    const initialState = {
+        data: [],
+    };
+
+
+    const test = [
+        {
+            type: 'test type 1',
+            data: [
+                {
+                    id: 1,
+                    year: 2003,
+                    best: {value:23, change:23},
+                    normal: {value:23, change:23},
+                    worst: {value:23, change:23},
+                },
+                {
+                    id: 2,
+                    year: 2004,
+                    best: {value:33, change:23},
+                    normal: {value:23, change:23},
+                    worst: {value:23, change:23},
+                },
+            ]
+        },
+        {
+            type: 'test type 2',
+            data: [
+                {
+                    id: 1,
+                    year: 2003,
+                    best: {value:23, change:23},
+                    normal: {value:23, change:23},
+                    worst: {value:23, change:23},
+                },
+                {
+                    id: 2,
+                    year: 2004,
+                    best: {value:33, change:23},
+                    normal: {value:23, change:23},
+                    worst: {value:23, change:23},
+                },
+            ]
+        }
+    ]
+
+
+    const macroDataSlice = createSlice({
+        name: 'macroData',
+        initialState,
+        reducers: {
+            setMacroData(state, action) {
+                state.data = action.payload;
+            },
+            updateMacroData(state, action) {
+                const { type, updatedData } = action.payload;
+                state.data = state.data.map(item =>
+                    item.type === type ? { ...item, ...updatedData } : item
+                );
+            },
+        },
+    });
+
+    export const {setMacroData, updateMacroData} = macroDataSlice.actions;
+
+    export default macroDataSlice.reducer;
+
     const columnDefs = [
         { headerName: '2025', children: [
                 { headerName: 'Норм', field: 'norm1' },
