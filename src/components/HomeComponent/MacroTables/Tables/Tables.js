@@ -1,25 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { AgGridReact } from 'ag-grid-react';
+import React, {useEffect, useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {AgGridReact} from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
-import 'ag-grid-community/styles/ag-theme-alpine.css';
-import { updateMacroData } from '../../../../redux/macroDataSlice';
+import 'ag-grid-community/styles/ag-theme-quartz.css';
+import {updateMacroData} from '../../../../redux/macroDataSlice';
 import s from './Tables.module.css';
+import {ReactComponent as UploadIcon} from "../../../../img/downoload.svg";
+import {ReactComponent as PencilIcon} from "../../../../img/pencil2.svg";
+import CustomHeaderGroupComponent from './CustomHeaderGroupComponent';
 
-const Tables = ({ data, type }) => {
+const Tables = ({data, type}) => {
     const dispatch = useDispatch();
     const [rowData, setRowData] = useState([]);
 
-    // UseEffect to update rowData when data changes
     useEffect(() => {
         const newRowData = [
             {
                 scenario: "Значение",
                 ...data.reduce((acc, item, index) => ({
                     ...acc,
-                    [`worst${index}`]: item.worst.value,
-                    [`normal${index}`]: item.normal.value,
-                    [`best${index}`]: item.best.value,
+                    [`worst${index}`]: parseFloat(item.worst.value),
+                    [`normal${index}`]: parseFloat(item.normal.value),
+                    [`best${index}`]: parseFloat(item.best.value),
                 }), {})
             },
             {
@@ -33,36 +35,48 @@ const Tables = ({ data, type }) => {
             },
         ];
         setRowData(newRowData);
-    }, [data]);  // <- Dependency on `data`
+    }, [data]);
+
+    useEffect(() => {
+        console.log('Updated rowData', rowData)
+    }, [rowData]);
 
     const columnDefs = [
-        { headerName: "Сценарий", field: "scenario", headerClass: s.headerCell, width: 120 },
+        {headerName: "Сценарий", field: "scenario", headerClass: s.headerCell, width: 120},
         ...data.map((item, index) => ({
             headerName: item.year.toString(),
+            headerGroupComponent: 'customHeaderGroupComponent',
             children: [
                 {
                     headerName: "Худш.",
                     field: `worst${index}`,
                     cellClass: s.bad,
                     headerClass: s.bad,
-                    width: 80,
+                    width: 67,
                     editable: true
                 },
-                { headerName: "Норм", field: `normal${index}`, cellClass: s.normal, width: 80, editable: true },
+                {
+                    headerName: "Норм",
+                    field: `normal${index}`,
+                    cellClass: s.normal,
+                    headerClass: s.normal,
+                    width: 67,
+                    editable: true
+                },
                 {
                     headerName: "Лучш.",
                     field: `best${index}`,
                     cellClass: s.good,
                     headerClass: s.good,
-                    width: 80,
-                    editable: true
+                    width: 67,
+                    editable: true,
                 }
             ]
         }))
     ];
 
     const handleCellValueChanged = (params) => {
-        const { colDef, newValue, rowIndex } = params;
+        const {colDef, newValue, rowIndex} = params;
         const updatedRowData = [...rowData];
 
         if (rowIndex === 0) { // строка "Значение"
@@ -92,7 +106,7 @@ const Tables = ({ data, type }) => {
         }));
 
         console.log(updatedData);
-        dispatch(updateMacroData({ type, updatedData }));
+        dispatch(updateMacroData({type, updatedData}));
     };
 
     const nameChanger = {
@@ -101,11 +115,22 @@ const Tables = ({ data, type }) => {
     }
 
     return (
-        <div className={`${s['ag-theme-no-borders']} ${s.customGrid} ${s['ag-theme-alpine']}`}
-             style={{height: '300px', width: '100%', borderRadius: '10px', overflow: 'hidden'}}>
-            <h3>{nameChanger[type]}</h3>
-            <button onClick={handleSave}>Загрузить</button>
-            <AgGridReact
+        <div className={s.table}    >
+            {rowData
+                ?<div className={s['table-header']}>
+                    <div className={s['table-title']}>
+                        <h3>{nameChanger[type]}</h3>
+                        <div className={s.icon}><PencilIcon/></div>
+                    </div>
+                    <div className={s.icon} onClick={handleSave}>
+                        <UploadIcon/>
+                    </div>
+                </div>
+                :''
+            }
+            <div className={s['ag-theme-quartz']}>
+                <button onClick={()=>console.log('Column Defs:', columnDefs, 'Row Data:', rowData)}>Дата</button>
+                <AgGridReact
                 columnDefs={columnDefs.map(colDef => {
                     if (colDef.children) {
                         colDef.children = colDef.children.map(childDef => ({
@@ -116,15 +141,13 @@ const Tables = ({ data, type }) => {
                     return colDef;
                 })}
                 rowData={rowData}
-                domLayout='autoHeight'
-                headerHeight={40}
-                rowHeight={40}
                 onCellValueChanged={handleCellValueChanged}
-                suppressHorizontalScroll={true}
-                suppressMovableColumns={true}
+                components={{ customHeaderGroupComponent: CustomHeaderGroupComponent }}
             />
+            </div>
         </div>
     );
+
 };
 
 export default Tables;

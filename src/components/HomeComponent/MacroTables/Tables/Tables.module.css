@@ -1,9 +1,16 @@
+@font-face {
+    font-family: 'Urbanist';
+    src: url('../../../../fonts/Urbanist-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .bad {
     background-color: #ffe6e6;
 }
 
 .normal {
-    background-color: #ffffff;
+    background-color: #fcfcfc;
 }
 
 .good {
@@ -13,22 +20,65 @@
 .header-cell {
     font-weight: bold;
     text-align: center;
-
 }
 
-.ag-theme-alpine .ag-header-cell {
+.ag-header-cell {
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.ag-theme-alpine .ag-cell {
+.ag-cell {
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    align-items: center;
+    text-align: center;
+}
+.table-title {
+    display: flex;
+    gap: 10px;
+}
+
+.icon {
+    color: #047AFE;
+}
+
+.icon:hover {
+    color: #191f9c;
+}
+
+.ag-theme-quartz {
+    --ag-border-radius: 10px;
+    --ag-borders: none;
+    --ag-row-border-style: none;
+    padding: 15px;
+    --ag-font-size: 15px;
+    --ag-font-family: 'Urbanist', sans-serif;
+    --ag-grid-size: 3px;
+}
+
+.ag-header-group-cell {
+    padding-left: 105px;
+
+}
+
+.ag-header-group-cell:nth-of-type(1) {
+    padding-left: 0;
+}
+
+
+
+
+
 
 
 
