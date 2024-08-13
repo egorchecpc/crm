@@ -5,22 +5,20 @@ import FindSettings from './FindSettings/FindSettings';
 import {setFindSettings} from '../../../../redux/settingsSlice';
 import {ReactComponent as PencilIcon} from '../../../../img/pencil.svg'
 
-
-
 const options = {
     debtorType: ['Все', 'Физическое лицо', 'Юридическое лицо'],
     creditType: ['Все', 'Потребительский кредит', 'Ипотечный кредит'],
     productType: ['Все', 'Кредитная карта', 'Дебетовая карта'],
 };
 
-const DataFind = (props) => {
+const DataFind = () => {
     const [modalWindow, setModalWindow] = React.useState(false);
     const dataSettings = useSelector((state) => state.settings.settings);
     const dispatch = useDispatch();
 
     const onChangeSettings = () => {
         setModalWindow(prevState => !prevState);
-        console.log(dataSettings)
+        console.log(dataSettings);
     };
 
     const handleSaveSettings = (newSettings) => {
@@ -44,8 +42,8 @@ const DataFind = (props) => {
             <div className={s.setting}>
                 <h5>Дата</h5>
                 <div>
-                    {dataSettings.dateRange[0] && dataSettings.dateRange[1]
-                        ? `${dataSettings.dateRange[0].toLocaleDateString()} - ${dataSettings.dateRange[1].toLocaleDateString()}`
+                    {dataSettings.selectedDate
+                        ? dataSettings.selectedDate.toLocaleDateString()
                         : '—'}
                 </div>
             </div>

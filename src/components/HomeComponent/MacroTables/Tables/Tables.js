@@ -6,7 +6,8 @@ import {updateMacroData} from '../../../../redux/macroDataSlice';
 import s from './Tables.module.css';
 import {ReactComponent as UploadIcon} from "../../../../img/downoload.svg";
 import {ReactComponent as PencilIcon} from "../../../../img/pencil2.svg";
-import '../../InfoTables/table.css'
+import './test.css'
+
 
 const Tables = ({data, type}) => {
     const dispatch = useDispatch();
@@ -48,7 +49,7 @@ const Tables = ({data, type}) => {
                     cellClass: s.bad,
                     headerClass: s.bad,
                     flex: 1,
-                    editable: true
+                    editable: true,
                 },
                 {
                     headerName: "Норм",

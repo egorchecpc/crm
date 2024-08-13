@@ -9,7 +9,7 @@ const FindSettings = ({onClose, onSave, settings, options}) => {
 
     const [formData, setFormData] = React.useState({
         ...settings,
-        dateRange: [null, null]
+        selectedDate: null
     });
 
     const handleChange = (e) => {
@@ -20,11 +20,10 @@ const FindSettings = ({onClose, onSave, settings, options}) => {
         });
     };
 
-    const handleDateChange = (dates) => {
-        const [start, end] = dates;
+    const handleDateChange = (date) => {
         setFormData({
             ...formData,
-            dateRange: [start, end],
+            selectedDate: date,
         });
     };
 
@@ -97,12 +96,8 @@ const FindSettings = ({onClose, onSave, settings, options}) => {
                         <label className={s.label}>
                             <h3 className={s['date__header']}>Дата</h3>
                             <DatePicker
-                                selected={formData.dateRange[0]}
+                                selected={formData.selectedDate}
                                 onChange={handleDateChange}
-                                startDate={formData.dateRange[0]}
-                                endDate={formData.dateRange[1]}
-                                selectsRange
-                                inline
                             />
                         </label>
                     </div>
@@ -111,8 +106,6 @@ const FindSettings = ({onClose, onSave, settings, options}) => {
                         <button className={`${s['back-button']} ${s['button']}`} onClick={onClose}>Отмена</button>
                     </div>
                 </form>
-
-
             </div>
         </div>
     );

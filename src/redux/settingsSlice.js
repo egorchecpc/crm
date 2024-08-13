@@ -5,7 +5,7 @@ const initialState = {
         debtorType: '—',
         creditType: '—',
         productType: '—',
-        dateRange: [null, null],
+        selectedDate: null,
     },
 };
 
