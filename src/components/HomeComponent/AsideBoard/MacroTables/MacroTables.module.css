@@ -1,0 +1,37 @@
+.macro {
+    margin-top: 3vh;
+}
+
+.tables {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 45%;
+    height: auto;
+}
+
+
+.test {
+    display: flex;
+    align-items: center;
+
+}
+.add-button {
+    width: 95%;
+    margin: auto;
+    height: 6vh;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    color: #CCCCCC;
+}
+
+.add-button:hover {
+    border: solid 2px #047AFE;
+    color: black;
+}
