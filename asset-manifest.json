@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/crm/static/css/main.77819d3f.css",
+    "main.js": "/crm/static/js/main.a14ecc30.js",
+    "static/media/Urbanist-VariableFont_wght.ttf": "/crm/static/media/Urbanist-VariableFont_wght.7209716a3a23e09247b8.ttf",
+    "static/media/photo.png": "/crm/static/media/photo.21e31216a31563aa22a5.png",
+    "static/media/pencil2.svg": "/crm/static/media/pencil2.942c5ddb07a1c57236bcbd73395a280e.svg",
+    "index.html": "/crm/index.html",
+    "static/media/pencil.svg": "/crm/static/media/pencil.f61b2998a158a5810dbcbc9000b71991.svg",
+    "static/media/down-arrow.svg": "/crm/static/media/down-arrow.f228953bbfbb02ff616b9a9adf36ca26.svg",
+    "static/media/downoload.svg": "/crm/static/media/downoload.418aadd63c52e826fa8eb66a0f99b0b0.svg",
+    "static/media/left-arrow.svg": "/crm/static/media/left-arrow.da103424db16894046473d4a7c25973a.svg",
+    "static/media/right-arrow.svg": "/crm/static/media/right-arrow.9b7117dd9f6e319eb9503573e33eef1b.svg",
+    "main.77819d3f.css.map": "/crm/static/css/main.77819d3f.css.map",
+    "main.a14ecc30.js.map": "/crm/static/js/main.a14ecc30.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.77819d3f.css",
+    "static/js/main.a14ecc30.js"
+  ]
+}
