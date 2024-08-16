@@ -1,14 +1,12 @@
-import SettingsBoard from "./SettingsBoard/SettingsBoard";
-import MacroTables from "./MacroTables/MacroTables";
 import InfoTables from "./InfoTables/InfoTables";
 import s from './HomeComponent.module.css'
+import AsideBoard from "./AsideBoard/AsideBoard";
 
 
 const HomeComponent = () => {
     return (
         <div className={s.wrapper}>
-            <SettingsBoard />
-            <MacroTables />
+            <AsideBoard />
             <InfoTables />
         </div>
     )
