@@ -13,11 +13,11 @@ import ImportComponent from "./components/ImportComponent/ImportComponent";
 
 const router = createBrowserRouter([
     {
-        path: '/import',
+        path: '/',
         element: <HomeComponent />,
     },
     {
-        path: '/',
+        path: '/import',
         element: <ImportComponent />,
     },
 ]);
