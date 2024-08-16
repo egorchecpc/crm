@@ -9,12 +9,6 @@ const SettingsBoard = () => {
         <div className={s.board}>
             <h1>ЛОГО</h1>
             <DataFind/>
-            <Link className={s.link} to="/import">
-                <button className={s['export-button']}>
-                    <DownoloadIcon />
-                    Экспортировать
-                </button>
-            </Link>
         </div>
     );
 }

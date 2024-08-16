@@ -1,6 +1,48 @@
 body {
-    background-color:#f1f5f8;
+    background-color: #f1f5f8;
 }
+
 .wrapper {
-    min-height:100vh;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.aside {
+    width: 25%;
+    transition: width 0.3s ease;
+    background-color: #f4f4f4;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.main {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    position: relative; /* Для позиционирования кнопки внутри main */
+}
+
+.asideClosed {
+    width: 0;
+}
+
+.toggleButton {
+    position: absolute;
+    top: 10px;
+    left: 10px; /* Размещаем кнопку в левом верхнем углу main */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.3s ease;
+}
+
+/* Меняем направление стрелки при закрытом aside */
+.asideClosed ~ .toggleButton {
+    transform: rotate(180deg);
 }

@@ -1,43 +1,68 @@
 .settings {
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    gap: 10px;
     text-align: center;
     align-items: center;
-    background-color:#eef3f9;
-    padding: 10px 20px;
-    border-radius: 15px;
+    padding: 20px;
+    border-radius: 12px;
+    width: 80%;
+    background-color: white;
 }
 
 .setting {
-    padding:5px;
+    padding: 5px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-.setting h5{
-    color: grey;
-    margin:0;
-    padding: 0;
+    align-items: flex-start;
+    width: 100%;
 }
 
-.setting div {
+.setting h5 {
+    color: black;
     font-weight: bold;
-    padding:3px;
-    font-size: 13px;
+    margin-bottom: 8px;
 }
 
-.change-button {
-    display: flex;
-    padding: 7px 13px;
+.select, .dateInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 8px;
-    border: none;
-    background-color: #047AFE;
-    color:white;
-    gap:8px;
+    font-size: 16px;
 }
 
-.change-button:hover {
-    background-color: #356ce8;
+.dateInput {
+    cursor: pointer;
+}
+
+.datePickerWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px; /* Можно настроить ширину по вашему усмотрению */
+}
+
+.dateInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.dayPicker {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    box-sizing: border-box;
+    font-size: 13px;
+    padding: 10px
 }
 
