@@ -39,7 +39,7 @@
 .datePickerWrapper {
     position: relative;
     width: 100%;
-    max-width: 400px; /* Можно настроить ширину по вашему усмотрению */
+    max-width: 400px;
 }
 
 .dateInput {

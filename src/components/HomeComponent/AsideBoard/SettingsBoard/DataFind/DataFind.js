@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import s from './DataFind.module.css';
 import { setFindSettings } from '../../../../../redux/settingsSlice';
-import { ReactComponent as PencilIcon } from '../../../../../img/pencil.svg';
-import { DayPicker, RussianLocale } from 'react-day-picker';
+import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
@@ -38,7 +37,7 @@ const DataFind = () => {
             ...dataSettings,
             selectedDate: date,
         });
-        setIsCalendarOpen(false); // Закрыть календарь после выбора даты
+        setIsCalendarOpen(false);
     };
 
     const toggleCalendar = () => {
@@ -104,7 +103,7 @@ const DataFind = () => {
                         <DayPicker
                             selected={selectedDate}
                             onDayClick={handleDateChange}
-                            locale={ru} // Используйте русскую локаль
+                            locale={ru}
                             className={s.dayPicker}
                         />
                     )}
