@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, {useState} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 import s from './DataFind.module.css';
-import { setFindSettings } from '../../../../../redux/settingsSlice';
-import { DayPicker } from 'react-day-picker';
+import {setFindSettings} from '../../../../../redux/settingsSlice';
+import {DayPicker} from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
-import { format } from 'date-fns';
-import { ru } from 'date-fns/locale';
+import {format} from 'date-fns';
+import {ru} from 'date-fns/locale';
+import {ReactComponent as CalendarIcon} from '../../../../../img/calendar-icon.svg'
+import "react-day-picker/style.css";
+import './data-picker.css'
 
 const options = {
     debtorType: ['Все', 'Физическое лицо', 'Юридическое лицо'],
@@ -24,7 +27,7 @@ const DataFind = () => {
     };
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const {name, value} = e.target;
         handleSaveSettings({
             ...dataSettings,
             [name]: value,
@@ -94,10 +97,14 @@ const DataFind = () => {
                     <input
                         type="text"
                         onClick={toggleCalendar}
-                        value={selectedDate ? format(selectedDate, 'dd MMMM yyyy', { locale: ru }) : ''}
+                        value={selectedDate ? format(selectedDate, 'dd MMMM yyyy', {locale: ru}) : ''}
                         readOnly
                         className={s.dateInput}
                         placeholder="Выберите дату"
+                    />
+                    <CalendarIcon
+                        onClick={toggleCalendar}
+                        className={s.calendarIcon}
                     />
                     {isCalendarOpen && (
                         <DayPicker

@@ -10,7 +10,7 @@ body {
 }
 
 .aside {
-    width: 25%;
+    width: 20%;
     transition: width 0.3s ease;
     background-color: #f4f4f4;
     position: relative;
@@ -22,7 +22,7 @@ body {
     flex: 1;
     background-color: #fff;
     padding: 20px;
-    position: relative; /* Для позиционирования кнопки внутри main */
+    position: relative;
 }
 
 .asideClosed {
@@ -32,7 +32,7 @@ body {
 .toggleButton {
     position: absolute;
     top: 10px;
-    left: 10px; /* Размещаем кнопку в левом верхнем углу main */
+    left: 10px;
     background-color: #007bff;
     color: white;
     border: none;
@@ -42,7 +42,8 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* Меняем направление стрелки при закрытом aside */
 .asideClosed ~ .toggleButton {
     transform: rotate(180deg);
 }
+
+
