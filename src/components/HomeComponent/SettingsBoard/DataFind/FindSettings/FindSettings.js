@@ -98,6 +98,7 @@ const FindSettings = ({onClose, onSave, settings, options}) => {
                             <DatePicker
                                 selected={formData.selectedDate}
                                 onChange={handleDateChange}
+                                className={s["custom-date-picker"]}
                             />
                         </label>
                     </div>

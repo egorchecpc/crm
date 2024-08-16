@@ -1,6 +1,5 @@
 .ag-theme-quartz {
     --ag-border-radius: 10px;
-    --ag-borders: none;
     --ag-row-border-style: none;
     padding: 0 10px;
     --ag-font-size: 13px;
@@ -9,4 +8,13 @@
     width: 100%;
     height: 120px;
     margin-top: 2vh;
+    --ag-range-selection-border-style: solid 1px red;
+    --ag-borders-critical: solid 1px;
+    --ag-borders-secondary: solid 1px;
+    --ag-cell-horizontal-border: dashed red !important;
+}
+
+.test {
+    --ag-borders: none;
+
 }

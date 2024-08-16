@@ -36,7 +36,7 @@ const ImportManager = () => {
     return (
         <div>
             <FileUpload onFileUpload={handleFileUpload} />
-            <div>Всякая всячина и настройки</div>
+            <div>Доп. настройки</div>
             {columns.length > 0 && (
                 <div className="ag-theme-alpine" style={{ height: 600, width: '100%' }}>
                     <AgGridReact

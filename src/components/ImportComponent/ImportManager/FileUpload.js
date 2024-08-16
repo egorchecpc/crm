@@ -1,6 +1,6 @@
 import React from 'react';
 import ExcelJS from 'exceljs';
-import Papa from 'papaparse';  // Импортируем библиотеку для обработки CSV
+import Papa from 'papaparse';
 import s from './FileUpload.module.css'
 
 const FileUpload = ({ onFileUpload }) => {
